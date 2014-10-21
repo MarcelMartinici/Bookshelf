@@ -1,3 +1,5 @@
 class PagesController < ApplicationController
-	puts "Hello from Rails"
+	def home
+	@greet ="Hello from Rails"
+    end
 end
