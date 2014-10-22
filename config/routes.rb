@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :book
+  resources :books
   root to: 'books#new'
   
 end
