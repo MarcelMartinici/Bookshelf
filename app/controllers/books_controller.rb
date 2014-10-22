@@ -3,6 +3,12 @@ class BooksController < ApplicationController
            
     end
     def create
-        render plain: params[:books].inspect
+        @books = books.new(books_params)
+        @books.save
+        redirect_to @books
+    end
+private
+    def books_params
+    	params.require(:books).permit(:title, :author, :description, :year)
     end
 end
