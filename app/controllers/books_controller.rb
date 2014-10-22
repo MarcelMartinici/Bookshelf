@@ -3,9 +3,12 @@ class BooksController < ApplicationController
            
     end
     def create
-        @books = books.new(books_params)
+        @books = Books.new(books_params)
         @books.save
         redirect_to @books
+    end
+    def show
+        @books = Books.find(params[:id])
     end
 private
     def books_params

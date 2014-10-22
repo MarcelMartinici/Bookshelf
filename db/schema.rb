@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20141022115333) do
   enable_extension "plpgsql"
 
   create_table "books", force: true do |t|
-    t.string   "Title"
-    t.string   "Author"
-    t.text     "Description"
-    t.integer  "Year"
+    t.string   "title"
+    t.string   "author"
+    t.text     "description"
+    t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
