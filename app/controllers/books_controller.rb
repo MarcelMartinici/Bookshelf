@@ -14,4 +14,8 @@ private
     def books_params
     	params.require(:books).permit(:title, :author, :description, :year)
     end
+    public
+    def index
+       @books = Books.all
+    end
 end
