@@ -14,12 +14,23 @@ end
     def show
         @books = Books.find(params[:id])
     end
-private
-    def books_params
-    	params.require(:books).permit(:title, :author, :description, :year)
-    end
-    public
     def index
        @books = Books.all
+    end
+    def edit
+       @books = Books.find(params[:id])
+    end
+    def update
+       @books = Books.find(params[:id])
+ 
+    if @books.update(books_params)
+       redirect_to @books
+  else
+    render 'edit'
+  end
+end
+    private
+    def books_params
+    	params.require(:books).permit(:title, :author, :description, :year)
     end
 end
