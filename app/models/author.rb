@@ -7,8 +7,5 @@ class Author < ActiveRecord::Base
   # author = Author.create
   # author = Author.find_by(name: '')
   # author = Author.find_or_create_by()
-
-
-  validates :name, presence: true,
-                length: { minimum: 5 }
+  validates :name, presence: true,length: { minimum: 5 }
 end

@@ -6,15 +6,11 @@ class BooksController < ApplicationController
     def create
         @books = Book.new(books_params)
         author_name = params["book"]["author"] # John
-
         # find Author by name
         # if author nil
         # => create Author
-        
-
         @books.author = Author.find_or_create_by(name: author_name)      
-
-
+        
         if @books.save
             redirect_to @books
         else
