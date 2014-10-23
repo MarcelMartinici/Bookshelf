@@ -5,6 +5,16 @@ class BooksController < ApplicationController
 
     def create
         @books = Book.new(books_params)
+        author_name = params["book"]["author"] # John
+
+        # find Author by name
+        # if author nil
+        # => create Author
+        
+
+        @books.author = Author.find_or_create_by(name: author_name)      
+
+
         if @books.save
             redirect_to @books
         else
@@ -42,7 +52,7 @@ class BooksController < ApplicationController
     private
 
     def books_params
-    	params.require(:book).permit(:title, :author, :description, :year)
+    	params.require(:book).permit(:title, :description, :year)
     end
     
 end
