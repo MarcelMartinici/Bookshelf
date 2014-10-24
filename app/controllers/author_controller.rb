@@ -1,4 +1,4 @@
-class AuthorController < ApplicationController
+class AuthorsController < ApplicationController
 
 	def new
         @author=Author.new
@@ -20,12 +20,16 @@ class AuthorController < ApplicationController
     def update
         @author = Author.find(params[:id])
         if @author.update(books_params)
-            redirect_to @books
+            redirect_to @book
         else
             render 'edit'
         end
     end
-
+    def destroy
+        @author = Book.find(params[:id])
+        @author.destroy
+        redirect_to books_path
+    end
 private
 
     def books_params

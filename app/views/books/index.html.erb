@@ -9,7 +9,7 @@
     <th>Year</th>
   </tr>
  
-  <% @books.each do |book| %>
+  <% @book.each do |book| %>
     <tr>
       <td><%= book.title %></td>
       <td><%= book.author.try(:name) %></td>

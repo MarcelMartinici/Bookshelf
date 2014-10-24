@@ -1,47 +1,48 @@
 class BooksController < ApplicationController
+    before_action :apply_filter, only: [:show,:edit,:update,:destroy]
     def new
-        @books=Book.new
+        @book=Book.new
     end
 
     def create
-        @books = Book.new(books_params)
+        @book = Book.new(books_params)
         author_name = params["book"]["author"] # John
         # find Author by name
         # if author nil
         # => create Author
-        @books.author = Author.find_or_create_by(name: author_name)      
+        @book.author = Author.find_or_create_by(name: author_name)      
         
-        if @books.save
-            redirect_to @books
+        if @book.save
+            redirect_to @book
         else
             render 'new'
         end
     end
     
     def show
-        @books = Book.find(params[:id])
+
     end
 
     def index
-       @books = Book.all
+       @book = Book.all
     end
 
     def edit
-       @books = Book.find(params[:id])
+
     end
 
     def update
-        @books = Book.find(params[:id])
-        if @books.update(books_params)
-            redirect_to @books
+
+        if @book.update(books_params)
+            redirect_to @book
         else
             render 'edit'
         end
     end
 
     def destroy
-        @books = Book.find(params[:id])
-        @books.destroy
+
+        @book.destroy
         redirect_to books_path
     end
 

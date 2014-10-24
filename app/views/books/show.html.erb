@@ -1,21 +1,21 @@
 <p>
   <strong>Title:</strong>
-  <%= @books.title %>
+  <%= @book.title %>
 </p>
  
 <p>
   <strong>Author:</strong>
-  <%= @books.author.name %>
+  <%= @book.author.name %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @books.description %>
+  <%= @book.description %>
 </p>
 
 <p>
   <strong>Year:</strong>
-  <%= @books.year %>
+  <%= @book.year %>
 </p>
 <%= link_to 'Back', books_path %>
-| <%= link_to 'Edit', edit_book_path(@books) %>
+| <%= link_to 'Edit', edit_book_path(@book) %>

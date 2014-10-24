@@ -1,6 +1,6 @@
 class Author < ActiveRecord::Base
 
-  has_many :books
+  has_many :book
   # books # => [Book.new, Book.new]
 
   # author = Author.new; author.save
