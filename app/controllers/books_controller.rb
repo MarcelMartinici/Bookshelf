@@ -35,7 +35,9 @@ class BooksController < ApplicationController
     def edit
     end
 
-    def update
+    def update        
+        author_name = params["book"]["author"]
+        @book.author = Author.find_or_create_by(name: author_name)  
         if @book.update(book_params)
             redirect_to @book
         else
