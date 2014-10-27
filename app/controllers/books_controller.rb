@@ -1,5 +1,11 @@
 class BooksController < ApplicationController
+      before_action :apply_filter
+  private
+  def apply_filter
+    @book = Book.find(params[:id])
+  end
     before_action :apply_filter, only: [:show,:edit,:update,:destroy]
+    public
     def new
         @book=Book.new
     end
@@ -20,7 +26,6 @@ class BooksController < ApplicationController
     end
     
     def show
-
     end
 
     def index
@@ -28,11 +33,9 @@ class BooksController < ApplicationController
     end
 
     def edit
-
     end
 
     def update
-
         if @book.update(book_params)
             redirect_to @book
         else
@@ -41,11 +44,10 @@ class BooksController < ApplicationController
     end
 
     def destroy
-
         @book.destroy
         redirect_to books_path
         @book.cover = nil
-        @book.save
+
     end
 
     private
