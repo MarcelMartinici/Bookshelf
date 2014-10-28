@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
 	belongs_to :author
-
+  belongs_to :user
 	# author # => Author.new
   # obj.author =
   # author_id

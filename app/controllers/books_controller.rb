@@ -1,11 +1,9 @@
 class BooksController < ApplicationController
-      before_action :apply_filter
-  private
-  def apply_filter
-    @book = Book.find(params[:id])
-  end
-    before_action :apply_filter, only: [:show,:edit,:update,:destroy]
-    public
+    load_and_authorize_resource
+    before_action :apply_filter, only: [:show, :edit, :update, :destroy]
+    #guest le vede pe toate dar nu face nimic
+    #moderator le vede pe toate dar le schimba doar pe ale lui
+    #admin le vede si le schimba pe toate
     def new
         @book=Book.new
     end
@@ -17,7 +15,7 @@ class BooksController < ApplicationController
         # if author nil
         # => create Author
         @book.author = Author.find_or_create_by(name: author_name)      
-        
+        @book.user=current_user
         if @book.save
             redirect_to @book
         else
@@ -26,6 +24,7 @@ class BooksController < ApplicationController
     end
     
     def show
+
     end
 
     def index
@@ -33,6 +32,7 @@ class BooksController < ApplicationController
     end
 
     def edit
+
     end
 
     def update        
@@ -54,6 +54,9 @@ class BooksController < ApplicationController
 
     private
 
+    def apply_filter
+        @book = Book.find(params[:id])
+    end
     def book_params
     	params.require(:book).permit(:title, :description, :year, :cover)
     end

@@ -21,4 +21,6 @@
 <%= image_tag @book.cover.url(:medium) %>
 </p>
 <%= link_to 'Back', books_path %>
-| <%= link_to 'Edit', edit_book_path(@book) %>
+<% if can? :update, @book %>
+<%= link_to 'Edit', edit_book_path(@book) %>
+<%end%>
