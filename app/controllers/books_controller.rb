@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
+    before_filter :authenticate_user!, except: [:index, :show, :edit, :update, :destroy]
     load_and_authorize_resource
     before_action :apply_filter, only: [:show, :edit, :update, :destroy]
+
     #guest le vede pe toate dar nu face nimic
     #moderator le vede pe toate dar le schimba doar pe ale lui
     #admin le vede si le schimba pe toate
@@ -21,6 +23,7 @@ class BooksController < ApplicationController
         else
             render 'new'
         end
+
     end
     
     def show
@@ -47,6 +50,7 @@ class BooksController < ApplicationController
 
     def destroy
         @book.destroy
+        flash[:notice] = "Successfully deleted book."
         redirect_to books_path
         @book.cover = nil
 

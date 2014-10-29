@@ -18,10 +18,10 @@
       <td><%= book.description %></td>
       <td><%= book.year %></td>
       <td><%= link_to 'Show', book_path(book) %></td>
-      <% if can? :update, @book %>
+      <% if can? :update, book %>
         <td><%= link_to 'Edit',edit_book_path(book) %></td>
       <%end%>
-      <% if can? :destroy, @book %>
+      <% if can? :destroy, book %>
         <td><%= link_to 'Delete', book_path(book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <%end%>
     </tr>
