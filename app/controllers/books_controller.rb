@@ -3,9 +3,7 @@ class BooksController < ApplicationController
     load_and_authorize_resource
     before_action :apply_filter, only: [:show, :edit, :update, :destroy]
 
-    #guest le vede pe toate dar nu face nimic
-    #moderator le vede pe toate dar le schimba doar pe ale lui
-    #admin le vede si le schimba pe toate
+ 
     def new
         @book=Book.new
     end
@@ -31,7 +29,12 @@ class BooksController < ApplicationController
     end
 
     def index
-       @book = Book.all
+        #@book = Book.all
+        if params[:search]
+            @book = Book.search(params[:search])
+        else
+            @book = Book.all
+        end
     end
 
     def edit
@@ -41,7 +44,7 @@ class BooksController < ApplicationController
     def update        
         author_name = params["book"]["author"]
         @book.author = Author.find_or_create_by(name: author_name)  
-        if @book.update(book_params)
+        if @book.update_attributes(book_params)
             redirect_to @book
         else
             render 'edit'
