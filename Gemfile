@@ -44,3 +44,8 @@ gem "pry"
 gem "devise"
 gem "cancancan"
 gem "cancan"
+gem "bootstrap-sass"
+gem 'autoprefixer-rails'
+gem 'twitter-bootstrap-rails'
+gem "therubyracer"
+gem "less-rails"

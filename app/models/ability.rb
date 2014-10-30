@@ -5,13 +5,12 @@ class Ability
         user ||= User.new #guest user
         if user.is? ('admin')
             can :manage, :all  
-        else
-            can :read, :all
-        end
-        if user.is? ('moderator') 
+        elsif user.is? ('moderator') 
             can :read, :all
             can :create, :all
-            can :crud, Book, :user_id=>user.id  
+            can :crud, Book, :user_id=>user.id 
+        else
+            can :read, :all
         end
     end
 end
