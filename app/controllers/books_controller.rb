@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     end
     
     def show
+    
     end
 
     def index
@@ -35,6 +36,7 @@ class BooksController < ApplicationController
     end
 
     def edit
+    
     end
 
     def update        
@@ -63,5 +65,4 @@ class BooksController < ApplicationController
     def book_params
     	params.require(:book).permit(:title, :description, :year, :cover)
     end
-    
 end
