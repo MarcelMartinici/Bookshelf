@@ -9,10 +9,7 @@ new_book_path,
 <%end%>
 <br>
 <br>
-<%= form_tag(books_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
-<%= submit_tag "Search", :title => nil %>
-<% end %>
+
 <br>
 <table class="table table-striped">
 <tr>
