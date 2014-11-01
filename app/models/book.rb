@@ -1,6 +1,8 @@
 class Book < ActiveRecord::Base
 	belongs_to :author
   belongs_to :user 	
+
+
   validates :title, presence: true,length: { minimum: 3 }
   validates :author_id, presence: true
   validates :year, presence: true,length: { maximum: 4 }

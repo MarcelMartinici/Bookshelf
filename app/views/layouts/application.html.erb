@@ -20,7 +20,7 @@
       <br>
       <%= form_tag books_path, :method => 'get' do %>
         <p>
-          <%= text_field_tag :search, params[:search] %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search content"  %>
           <%= submit_tag "Search", :name => nil %>
         </p>
       <% end %>
