@@ -16,6 +16,12 @@
     <dd><%= @book.year %></dd>
   </dl>
 
+    <% if current_user %>
+      <dt><strong>Rating: <%= rating_for @book, "book_rating", disable_after_rate: false,target: '#hintDiv'  %></strong></dt>
+      <div id="hintDiv"></div>
+      <br>
+    <% end %>
+
   <p>
     <%= image_tag @book.cover.url(:medium) %>
   </p>
