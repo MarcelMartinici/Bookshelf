@@ -43,6 +43,12 @@
   </p>
 
   <p>
+    <%= label_tag 'Cathegory' %><br>
+    <div class="controls">
+    <%= text_field_tag 'book[cathegory]', @book.cathegory.map { |cathegory| cathegory.cathegory_name }.join(', '), :class =>'form-control' %>
+  </p>
+
+  <p>
     <%= f.label :year%><br>
     <%= f.number_field :year %>
   </p>

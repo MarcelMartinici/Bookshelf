@@ -13,6 +13,7 @@
       <th>Title</th>
       <th>Author</th>
       <th>Description</th>
+      <th>Cathegory</th>
       <th>Year</th>
       <th> </th>
     </tr>
@@ -22,6 +23,7 @@
       <td><%= link_to book.title, book_path(book) %></td>
       <td><%= book.author.try(:name) %></td>
       <td><%= book.description %></td>
+      <td><%= book.cathegory.map { |name| name.cathegory_name }.join(', ') %></td>
       <td><%= book.year %></td>
     <td>
     <% if can? :update, book %>

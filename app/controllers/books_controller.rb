@@ -10,11 +10,10 @@ class BooksController < ApplicationController
     def create
         @book = Book.new(book_params)
         author_name = params["book"]["author"] 
-        # find Author by name
-        # if author nil
-        # => create Author
-        @book.author = Author.find_or_create_by(name: author_name)      
+        @book.author = Author.find_or_create_by(name: author_name)     
+        @book.cathegory = Cathegory.create_from_name(params[:book][:cathegory])
         @book.user=current_user
+        
         if @book.save
             redirect_to @book
         else
@@ -27,7 +26,6 @@ class BooksController < ApplicationController
     end
 
     def index
-        #@book = Book.all
         if params[:search]
             @book = Book.search(params[:search])
         else
@@ -41,7 +39,8 @@ class BooksController < ApplicationController
 
     def update        
         author_name = params["book"]["author"]
-        @book.author = Author.find_or_create_by(name: author_name)  
+        @book.author = Author.find_or_create_by(name: author_name)
+        @book.cathegory = Cathegory.create_from_name(params[:book][:cathegory])  
         if @book.update(book_params)
             redirect_to @book
         else
@@ -55,7 +54,7 @@ class BooksController < ApplicationController
         redirect_to books_path
         @book.cover = nil
     end
-
+    
     private
 
     def apply_filter
