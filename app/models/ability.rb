@@ -1,5 +1,6 @@
 class Ability
     include CanCan::Ability
+
     def initialize(user)
         alias_action :read, :update, :destroy, :to => :crud
         user ||= User.new #guest user
@@ -13,4 +14,5 @@ class Ability
             can :read, :all
         end
     end
+    
 end
