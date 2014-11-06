@@ -5,6 +5,7 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
   
   <body> 
@@ -23,7 +24,6 @@
       </div>
       <div class="navbar-collapse collapse">
         <div class="navbar-form navbar-left" role="form">
-
           <%= form_tag books_path, :method => 'get' do %>
             <p>
               <%= text_field_tag :search, params[:search], placeholder: "Search"  %>
@@ -31,7 +31,6 @@
             </p>
           <% end %>
         </div>
-
         <div class="navbar-form navbar-right" role="form">
           <%= form_for(:user, :url => session_path(:user)) do |f| %>
             <% if user_signed_in? %>
