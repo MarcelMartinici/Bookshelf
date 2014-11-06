@@ -18,13 +18,14 @@
           <span class="icon-bar"></span>
         </button>
       <br>
-      <%= form_tag books_path, :method => 'get' do %>
+        <%= form_tag books_path, :method => 'get' do %>
         <p>
           <%= text_field_tag :search, params[:search], placeholder: "Search"  %>
-          <%= submit_tag "Search", :name => nil %>
+          <strong><%= submit_tag "Search", :name => nil %></strong>
         </p>
       <% end %>
       </div>
+
       <div class="navbar-collapse collapse">
         <div class="navbar-form navbar-right" role="form">
           <%= form_for(:user, :url => session_path(:user)) do |f| %>

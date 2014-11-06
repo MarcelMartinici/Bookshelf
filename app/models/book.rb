@@ -7,10 +7,10 @@ class Book < ActiveRecord::Base
   ratyrate_rateable 'book_rating'
 
   validates :title, presence: true,length: { minimum: 3 }
-  validates :author_id, presence: true
+  validates_presence_of :author_id
   validates :year, presence: true,length: { maximum: 4 }
 
-  has_attached_file :cover, :styles => { :medium => "640x480>"}, :default_url => "missing.png"
+  has_attached_file :cover, :styles => { :medium => "400x300>"}, :default_url => "missing.png"
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
  
   scope :search, -> term {

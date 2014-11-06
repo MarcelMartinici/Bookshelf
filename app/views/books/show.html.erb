@@ -7,22 +7,20 @@
     <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
     <dd><%= @book.title %></dd>
     <dt><strong><%= model_class.human_attribute_name(:author_id) %>:</strong></dt>
-    <dd><%= @book.author.try(:name) %></dd>
+    <dd><%= @book.author.try(:name).titleize %></dd>
     <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
     <dd><%= @book.description %></dd>
     <dt><strong><%= model_class.human_attribute_name(:cathegory)%></strong></dt>
     <dd><%= @book.cathegory.map { |cathegory| cathegory.cathegory_name }.join(', ') %></dd>
     <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
     <dd><%= @book.year %></dd>
+    </dd><%= image_tag @book.cover.url(:medium) %></dd>
   </dl>
-  <br><br>
-      <dt><strong>Rating: <%= rating_for @book, "book_rating", disable_after_rate: false,target: '#hintDiv'  %></strong></dt>
-      <div id="hintDiv"></div>
-      <br>
-  <p>
-    <%= image_tag @book.cover.url(:medium) %>
-  </p>
-
+  
+  <dt><strong>Rating: <%= rating_for @book, "book_rating", disable_after_rate: false,target: '#hintDiv'  %></strong></dt>
+  <div id="hintDiv"></div>
+  <br>
+  
   <%= link_to t('.back', :default => t("helpers.links.back")),books_path, :class => 'btn btn-default'  %>
 
   <% if can? :update, @book %>

@@ -21,7 +21,7 @@
   <% @book.each do |book| %>
     <tr class="active">
       <td><%= link_to book.title, book_path(book) %></td>
-      <td><%= book.author.try(:name) %></td>
+      <td><%= book.author.try(:name).titleize %></td>
       <td><%= book.description %></td>
       <td><%= book.cathegory.map { |name| name.cathegory_name }.join(', ') %></td>
       <td><%= book.year %></td>
