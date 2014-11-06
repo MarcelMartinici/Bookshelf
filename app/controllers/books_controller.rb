@@ -11,7 +11,7 @@ class BooksController < ApplicationController
         @book = Book.new(book_params)
         author_name = params["book"]["author"] 
         @book.author = Author.find_or_create_by(name: author_name.downcase)     
-        @book.cathegory = Cathegory.create_from_name(params[:book][:cathegory])
+        @book.cathegory = Cathegory.create_from_name(params[:book][:cathegory].downcase)
         @book.user=current_user
         
         if @book.save
@@ -40,7 +40,7 @@ class BooksController < ApplicationController
     def update        
         author_name = params["book"]["author"]
         @book.author = Author.find_or_create_by(name: author_name.downcase)
-        @book.cathegory = Cathegory.create_from_name(params[:book][:cathegory])  
+        @book.cathegory = Cathegory.create_from_name(params[:book][:cathegory].downcase)  
         if @book.update(book_params)
             flash[:notice] = "Successfully updated book."
             redirect_to @book
