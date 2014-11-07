@@ -7,16 +7,22 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create!(email: 'user@gmail.com', 
              password: '123456789', 
-             password_confirmation: '123456789')
+             password_confirmation: '123456789',
+             role: 'moderator')
 
-Book.create(title: 'Amintiri din copilarie'
-             author_id: '1'
+User.create!(email: 'admin@gmail.com', 
+             password: '123456789', 
+             password_confirmation: '123456789',
+             role: 'admin')
+
+Book.create(title: 'Amintiri din copilarie',
+             author_id: '1',
              year: '1850')
 
-Book.create(title: 'Dracula'
-             author_id: '1'
+Book.create(title: 'Dracula',
+             author_id: '1',
              year: '1900')
 
-Book.create(title: 'Steve Jobs'
-             author_id: '1'
+Book.create(title: 'Steve Jobs',
+             author_id: '1',
              year: '2013')

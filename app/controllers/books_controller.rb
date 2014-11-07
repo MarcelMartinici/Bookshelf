@@ -13,7 +13,6 @@ class BooksController < ApplicationController
         @book.author = Author.find_or_create_by(name: author_name.downcase)     
         @book.cathegory = Cathegory.create_from_name(params[:book][:cathegory].downcase)
         @book.user=current_user
-        
         if @book.save
             redirect_to @book
         else
