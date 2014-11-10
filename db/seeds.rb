@@ -1,28 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(email: 'user@yopeso.com', 
-             password: '123456789', 
-             password_confirmation: '123456789',
-             role: 'moderator')
+# creating test users
+user1 = User.create(email: "admin@yopeso.com", password: "123456789", role: "admin")
+user2 = User.create(email: "user@yopeso.com", password: "123456789", role: "moderator")
+# creating test authors
+@author1 = Author.create_from_name("George R. Martin")
+@author2 = Author.create_from_name("Bram Stoker")
+# creating test books
 
-User.create!(email: 'admin@yopeso.com', 
-             password: '123456789', 
-             password_confirmation: '123456789',
-             role: 'admin')
-
-Book.create(title: 'Amintiri din copilarie',
-             author_id: '1',
-             year: '1850')
-
-Book.create(title: 'Dracula',
-             author_id: '1',
-             year: '1900')
-
-Book.create(title: 'Steve Jobs',
-             author_id: '1',
-             year: '2013')
+Book.create(
+title: "A Game of Thrones",
+year: 1995,
+user: user1,
+author: @author1,
+)
+Book.create(
+title: "Dracula",
+year: 1900,
+user: user2,
+author: @author2,
+)
