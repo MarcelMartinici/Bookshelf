@@ -37,7 +37,7 @@ end
 
 group :development, :test do
   gem "factory_girl_rails", "~> 3.2.0"
-  gem "guard-rspec", "~> 0.7.0"
+
 end
   
 # Use ActiveModel has_secure_password
