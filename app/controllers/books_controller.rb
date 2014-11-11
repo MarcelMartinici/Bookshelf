@@ -4,7 +4,7 @@ class BooksController < ApplicationController
     before_action :apply_filter, only: [:show, :edit, :update, :destroy]
 
     def new
-        @book=Book.new
+        @book = Book.new
     end
 
     def create
@@ -13,6 +13,7 @@ class BooksController < ApplicationController
         @book.author = Author.find_or_create_by(name: author_name.downcase)     
         @book.cathegory = Cathegory.create_cathegory(params[:book][:cathegory].downcase)
         @book.user=current_user
+        
         if @book.save
             redirect_to @book
         else
