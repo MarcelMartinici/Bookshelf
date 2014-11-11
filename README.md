@@ -6,13 +6,13 @@ A Ruby based app that will help you organize your Library of books.
 
 The Bookshelf app is dedicated to store book collections and authors.
 
-On the ``/book`` page you can see All listed books. You can add new books by clicking "Add book" button.
+On the ``/book`` page you can see all listed books. You can add new books by clicking the "Add book" button.
 
-Authors and Cathegories are created through book creation. Multiply cathegories should be separated by a comma.
+Authors and Cathegories are created through book creation. Multiple cathegories should be separated by a comma and it wont make new cathegories if there are spaces after the comma.
 
 After creating the book you are redirected to the book "Show" page, Where you can overview and set a rate for the created book.
 
-After creating your book, you obtain the ability to edit your book by pressing the edit button.
+After creating your book, you obtain the ability to edit your book by pressing the edit button and the ability to delete that book by simply clicking the delete button.
 
 Also the book stores the user that added it to the library. You can also access the user list and their publications by the button in the top menu.
 
@@ -85,4 +85,4 @@ rake db:seed
 
 test_admin@yopeso.com and test_user@yopeso.com both with password 123456789
 
-Use them to test out the User rights system. Create and administrate your library and see how this is beneficial for you.
+Use them to test out the User rights system. Create and administrate your library and see how this is beneficial for you. Dont forget to start the server using ```rails s``` or ```thin start```.
