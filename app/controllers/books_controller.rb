@@ -53,7 +53,6 @@ class BooksController < ApplicationController
         @book.destroy
         flash[:notice] = "Successfully deleted book."
         redirect_to books_path
-        @book.cover = nil
     end
     
     private
