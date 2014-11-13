@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  models:
+    book: Book
+  succesfully_updated: "The %{name} has been succesfully updated" 

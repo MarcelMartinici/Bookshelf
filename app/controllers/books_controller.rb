@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     @book.author = Author.find_or_create_by(name: author_name.downcase)     
     @book.cathegory = Cathegory.create_cathegory(params[:book][:cathegory].downcase)
     @book.user = current_user
-        
+
     if @book.save
       redirect_to @book
     else
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
     @book.cathegory = Cathegory.create_cathegory(params[:book][:cathegory].downcase)  
     
     if @book.update(book_params)
-      flash[:notice] = "Successfully updated book."
+      flash[:notice] = t('succesfully_updated', name: t("models.book"))
       redirect_to @book
     else
       render 'edit'
