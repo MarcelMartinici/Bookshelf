@@ -14,23 +14,17 @@ user2 = User.create(email: "user@yopeso.com",
 
 # creating test books
 
-Book.create(
-title: "A Game of Thrones",
-year: 1995,
-author: @author1,
-cathegory:Cathegory.create_cathegory("action, fantasy, epic")
-)
+Book.create(title: "A Game of Thrones",
+            year: 1995,
+            author: @author1,
+            cathegory:Cathegory.create_cathegory("action, fantasy, epic"))
 
-Book.create(
-title: "Dracula",
-year: 1900,
-author: @author2,
-cathegory:Cathegory.create_cathegory("action, fantasy, horror")
-)
+Book.create(title: "Dracula",
+            year: 1900,
+            author: @author2,
+            cathegory:Cathegory.create_cathegory("action, fantasy, horror"))
 
-Book.create(
-title: "A Clash of Kings",
-year: 1998,
-author: @author2,
-cathegory:Cathegory.create_cathegory("action, fantasy, epic")
-)
+Book.create(title: "A Clash of Kings",
+            year: 1998,
+            author: @author2,
+            cathegory:Cathegory.create_cathegory("action, fantasy, epic"))

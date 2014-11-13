@@ -5,8 +5,6 @@ RSpec.describe Book, :type => :model do
     expect(FactoryGirl.create :book).to be_valid
   end
 
-  # Book.search # => def self.search
-  # Book#search # => def search
   describe ".search" do
     let!(:book1) { FactoryGirl.create :book, title: 'Ruby Metaprogramming' }
     let!(:book2) { FactoryGirl.create :book, title: 'Alice in Wonderland' }

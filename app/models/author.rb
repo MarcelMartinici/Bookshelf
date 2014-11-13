@@ -5,5 +5,4 @@ class Author < ActiveRecord::Base
   def self.create_author_name(name)
     Author.find_or_create_by(name: name)
   end
-
 end
