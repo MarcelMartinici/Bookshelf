@@ -52,7 +52,6 @@ RSpec.describe BooksController, :type => :controller do
       it "redirects to the new book" do 
         post :create, book: 
         FactoryGirl.attributes_for(:book) 
-
       end 
     end 
 
