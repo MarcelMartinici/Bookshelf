@@ -40,15 +40,12 @@ RSpec.describe BooksController, :type => :controller do
   end
 
   describe "POST create" do 
-    before :each do 
-      @book = FactoryGirl.create :book, title: 'Game of thrones'
-    end 
     
     context "with valid attributes" do 
       
       it "creates a new book" do 
       # expect{ delete :destroy, id: @book }.to change(Book,:count).by(-1) 
-        expect{ post :create, id: @book}.to change(Book,:count).by(1) 
+        expect{ post :create, id: :book}.to change(Book,:count).by(1) 
       end 
       
       it "redirects to the new book" do 
@@ -75,7 +72,7 @@ RSpec.describe BooksController, :type => :controller do
     before :each do 
       @book = FactoryGirl.create :book, title: 'Game of thrones'
     end 
-    
+        let!(:book1) { FactoryGirl.create :book }
     context "valid attributes" do 
     
       it "located the requested @book" do 
